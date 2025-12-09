@@ -58,8 +58,6 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "First Lastname"
-  avatar : "/assets/images/bio-photo.jpg"
   bio    : "The idea is to hold an informal, friendly seminar/workshop to explore the computer algebra system Magma."
   links:
     - label: "VUB algebra research group"
