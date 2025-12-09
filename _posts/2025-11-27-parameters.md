@@ -1,13 +1,11 @@
 ---
-title: 'Matrices with parameters'
+title: 'Can we use parameters when doing computations with matrices? And matrices with parameters?'
 date: 2025-11-27
 categories:
   - questions
 tags:
   - matrices
 ---
-##### Can we use parameters when doing computations with matrices? And matrices with parameters?
-
 I believe the matrix has to be defined over a polynomial ring. For example:
 ```
 R<x>:=PolynomialRing(Integers());
