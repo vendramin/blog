@@ -1,6 +1,7 @@
 ---
 title: 'The Promislow group'
 date: 2025-11-27
+author: Silvia Properzi
 categories:
   - questions
 tags:
@@ -24,14 +25,13 @@ Some questions:
 * Why `Q := quo<P|N>` doesn’t work? 
 
 It does! The type of a subgroup `N` of a group `G` should be the same as the
-type of `G`. I think that in most cases, Magma views `N` as a literal
-subset of `G` and doesn’t give an inclusion map, but it looks like it gives
-an inclusion map in the case that the groups are finitely presented
-abelian.
+type of `G`. I think that in most cases, Magma views `N` as a literal subset of
+`G` and doesn’t give an inclusion map, but it looks like it gives an inclusion
+map in the case that the groups are finitely presented abelian.
 
 * Why `IsAbelian(Q)` doesn’t work? 
 
-`IsAbelian` is defined for `GrpLie`,
-`GrpFin`, `GrpPerm`, `GrpMat`, `GrpPC` and `GrpGPC` while in this case `Q` is
-still a `GrpFP`; we need to change the type!
+The function `IsAbelian` is defined for `GrpLie`, `GrpFin`, `GrpPerm`,
+`GrpMat`, `GrpPC` and `GrpGPC` while in this case `Q` is still a `GrpFP`; we
+need to change the type!
 

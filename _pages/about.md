@@ -10,6 +10,22 @@ seminar/workshop to explore the computer algebra system
 Everyone is welcome to contribute, whether with talks, questions, exercises,
 solutions, or anything else you think might be useful.
 
+## Regular participants
+
+* Andrew Darlington
+* Lennert De Baecke 
+* William Hautekiet 
+* Thomas Letourmy
+* Meijun Liu
+* Kevin Piterman
+* Silvia Properzi
+* Yufei Qin 
+* Charlotte Roelants
+* Lukas Simmons 
+* Arthur Van Beersel
+* Leandro Vendramin
+* Magdalena Wiertel 
+
 ## Wanna contribute?
 
 Feel free to contact anyone in the [VUB algebra
