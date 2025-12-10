@@ -1,7 +1,7 @@
 ---
-title: 'Join and meet'
+title: 'Computing preimages'
 date: 2025-11-27
-author: VUB
+author: Leandro Vendramin
 categories:
   - questions
 tags:
@@ -54,8 +54,8 @@ induced by
         18)(19, 23, 27)(20, 24, 28)(21, 25, 29)(22, 26, 30)
 ```
 The map `f` we get is a bijective group homomorphism $SL_2(5)\to P$, where $P$ is
-a permutation group. The preimage of our $y$ has size two, and it is 
-the right coset $\{ kx:k\in\ker p\}$. Let us compute this: 
+a permutation group. The preimage of $y$ has size two, and it is 
+the right coset $(\ker p)x$. Let us compute this: 
 ```
 > N := f(K);
 > K := Kernel(p);
