@@ -1,4 +1,15 @@
 # /_data/authors.yml
+VUB algebra research group
+  name        : "VUB algebra research group"
+  avatar      : "/assets/images/vub.png"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:Leandro.Vendramin@vub.be"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://leandrovendramin.org/team"
+
 Leandro Vendramin:
   name        : "Leandro Vendramin"
   avatar      : "/assets/images/vendramin.png"
