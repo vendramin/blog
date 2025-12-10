@@ -1,18 +1,3 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: VUB Magma seminar 
 #email:
 description: >- # this means to ignore newlines until "baseurl:"
@@ -27,6 +12,7 @@ search: true
 # Build settings
 markdown: kramdown
 remote_theme: mmistakes/minimal-mistakes
+
 # Outputting
 permalink: /:categories/:title/
 paginate: 10 # amount of posts to show
@@ -34,7 +20,6 @@ paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 enable_copy_code_button: true
-
 
 include:
   - _pages
@@ -64,6 +49,7 @@ author:
   name: "VUB Algebra research group" 
   avatar: "/assets/images/vub.png"
   url: "https://leandrovendramin.org/team/" 
+  email: "Leandro.Vendramin@vub.be"
   bio: "A group of algebraists exploring Magma in an informal, friendly
     seminar. We seek the line of code that finally makes everything work."
 #  links:
@@ -74,6 +60,7 @@ footer:
   links:
     - label: "VUB algebra research group"
       url: "https://leandrovendramin.org/team/" 
+      email: "Leandro.Vendramin@vub.be"
 
 defaults:
   # _posts
@@ -86,7 +73,6 @@ defaults:
       read_time: false
       comments: true
       readmore: false
-      excerpts: false  
       share: false
       related: true
   # _pages
