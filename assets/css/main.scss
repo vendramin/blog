@@ -60,7 +60,8 @@ $h-size-6: 1em !default;
 // !! ALL VARIABLE DECLARATIONS MUST BE BEFORE THIS STATEMENT !!
 // *************************************************************
 
-@import "minimal-mistakes";
+//@import "minimal-mistakes";
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 
 // https://github.com/mmistakes/minimal-mistakes/discussions/1352#discussioncomment-2074482
 // If you adjust your /assets/css/main.scss like suggested in #1219:
@@ -81,7 +82,7 @@ html {
     }
 
     @include breakpoint($x-large) {
-      font-size: 15px; // change to whatever
+      font-size: 16px; // change to whatever
     }
   }
 
