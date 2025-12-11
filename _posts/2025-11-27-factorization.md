@@ -3,7 +3,7 @@ title: 'Given a polynomial with integer coefficients, how can I consider it as a
 date: 2025-11-27
 author: Andrew Darlington
 categories:
-  - questions
+  - Questions
 tags:
   - field
   - polynomial

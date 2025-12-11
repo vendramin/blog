@@ -3,7 +3,7 @@ title: 'Iterating over an automorphism group'
 date: 2025-11-27
 author: VUB
 categories:
-  - questions
+  - Questions
 tags:
   - group
   - automorphism group
@@ -14,10 +14,8 @@ How can we iterate over the elements of an automorphism group?
 Let us assume we need to iterate over the six automorphisms
 of the Klein group. 
 ```
-> G := AbelianGroup([2,2]);
-> A := AutomorphismGroup(G);
-> GroupName(A);
-S3
+G := AbelianGroup([2,2]);
+A := AutomorphismGroup(G);
 ```
 The naive idea doesn't work. Typing 
 ```

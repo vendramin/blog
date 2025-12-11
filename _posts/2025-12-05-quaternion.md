@@ -3,10 +3,10 @@ title: 'The quaternion group'
 date: 2025-11-27
 author: VUB
 categories:
-  - questions
+  - Questions
 tags:
   - group
-  - matrix
+  - matrix group
 ---
 A typical exercise in elementary group theory 
 asks to check that the group 

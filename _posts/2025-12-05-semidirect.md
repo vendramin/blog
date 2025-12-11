@@ -3,7 +3,7 @@ title: 'Groups of order 12 as semidirect products'
 date: 2025-11-27
 author: Leandro Vendramin
 categories:
-  - exercises
+  - Exercises
 tags:
   - group
   - semidirect product

@@ -3,7 +3,7 @@ title: 'Can we use matrices with parameters?'
 date: 2025-11-27
 author: Andrew Darlington
 categories:
-  - questions
+  - Questions
 tags:
   - matrix
   - linear algebra

@@ -3,7 +3,7 @@ title: 'Given a function with more than one output, how can we get the second ar
 date: 2025-11-27
 author: Andrew Darlington
 categories:
-  - questions
+  - Questions
 tags:
   - basic
 ---
