@@ -31,23 +31,23 @@ $C_3\to Aut(C_2\times C_2)$.
 C2 := CyclicGroup(2);
 C2xC2 := DirectProduct(C2,C2);
 C3 := CyclicGroup(3);
-aut_C2xC2 := AutomorphismGroup(C2xC2);
+A := AutomorphismGroup(C2xC2);
 ```
 We cannot iterate over an automorphism group. Thus
 we construct a permutation representation `P` 
-of `aut_C2xC2`. 
+of `A`. 
 ```
-p, P := PermutationRepresentation(aut_C2xC2);
+p, P := PermutationRepresentation(A);
 ```
 Now we construct a list with all the six maps 
 $C_3\to Aut(C_2\times C_2)$; not all are 
 group homomorphisms. 
 ```
-maps := [ hom< C3->aut_C2xC2 | <C3.1,Inverse(p)(P!x)> > x in P ];
+maps := [ hom<C3->A | <C3.1,Inverse(p)(P!x)>>:x in P ];
 ```
 Here, `Inverse(p)(P!x)` is the automorphism of $C_2\times C_2$ 
 corresponding to the permutation `x` by the bijection `p`. We 
-crucial fact here is that we cannot iterate over `aut_C2xC2` but
+crucial fact here is that we cannot iterate over `A` but
 we can do it over `P`. 
 
 Now to get all semidirect products of the form 
@@ -89,9 +89,23 @@ A4
 
 ##### Case 2
 
-What about semidirect products of the form $C_4\rtimes C_3$? In this case we
+What about semidirect products of the form $C_4\rtimes C_3$? In this case, we
 will only get the cyclic group of order twelve. 
-
+```
+C2 := CyclicGroup(2);
+C3 := CyclicGroup(3);
+C4 := CyclicGroup(4);
+A := AutomorphismGroup(C4);
+p, P := PermutationRepresentation(A);
+maps := [ hom< C3->A | <C3.1,Inverse(p)(P!x)> > : x in P ];
+```
+Now we need to use the function `is_homomorphism` we constructed before. In
+this case, only the cyclic group $C_{12}$ appears: 
+```
+> { GroupName(SemidirectProduct(C4,C3,f)) : f in maps | is_homomorphism(f) };
+{ C12 }
+```
 ##### Case 3
+
 
 
