@@ -137,16 +137,16 @@ of the form $C_3\rtimes C_4$.
 ##### Case 4
 
 There is one case left, namely the semidirect products of the form $C_3\rtimes
-(C_2\times C_2)$. Assume that $C_2\times C_2=\angle a,b\rangle$. Let us first
+(C_2\times C_2)$. Assume that $C_2\times C_2=\langle a,b\rangle$. Let us first
 construct the groups: 
 ```
 C2xC2<a,b> := AbelianGroup([2,2]);
 C3 := AbelianGroup([3]);
 A := AutomorphismGroup(C3);
 ```
-Thus we know that $Aut(C_3)=\{\operatorname{id},\alpha\}$. There are four
+Thus we know that $Aut(C_3)=\\{\operatorname{id},\alpha\\}$. There are four
 possible homomorphisms $C_2\times C_2\to Aut(C_3)$, as the generator $a$ and $b$ can be
-mapped independently to either $\id$ or $\alpha$, Again, we use a permutation
+mapped independently to either the identity or $\alpha$, Again, we use a permutation
 representation to be able to iterate over an automorphism group: 
 ```
 p, P := PermutationRepresentation(A);
