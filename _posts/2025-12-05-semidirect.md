@@ -43,7 +43,7 @@ Now we construct a list with all the six maps
 $C_3\to Aut(C_2\times C_2)$; not all are 
 group homomorphisms. 
 ```
-maps := [ hom<C3->A | <C3.1,Inverse(p)(P!x)>>:x in P ];
+maps := [ hom<C3->A | <C3.1,Inverse(p)(P!x)>> : x in P ];
 ```
 Here, `Inverse(p)(P!x)` is the automorphism of $C_2\times C_2$ 
 corresponding to the permutation `x` by the bijection `p`. We 
@@ -108,5 +108,32 @@ produces `{ C12 }`.
 
 ##### Case 3
 
+We now construct the groups of the form $C_3\rtimes C_4$. We now
+that $Aut(C_3)\simeq C_2$. So there is only one non-trivial 
+automorphism of $C_3$, namely $C_3\to C_3$, $x\mapsto x^{-1}$. 
+```
+C3 := CyclicGroup(3);
+C4 := CyclicGroup(4);
+A := AutomorphismGroup(C3);
+a := hom<C3->C3|x:->Inverse(x)>;
+```
+We can indeed check that `a` belongs to `A`. 
+the group homomorphism $C_4\to\Aut(C_3)$ sending
+the generator of $C_4$ to the automorphism $x\mapsto x^{-1}$. 
+```
+f := hom<C4->A|<C4.1,a>>;
+```
+We can check that this `f` is a homomorphism, but we leave this
+as an exercise. Now we construct the semidirect product we need:
+```
+G := SemidirectProduct(C3,C4,f);
+```
+The group `G` is somewhat new, is non-abelian and is not $\mathbb{A}_4$. In fact, 
+the command 
+```
+GroupName(G);
+```
+returns `C_3:C_4`, which means _a_ semidirect product 
+of the form $C_3\rtimes C_4$. 
 
-
+##### Case 4
