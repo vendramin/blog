@@ -27,11 +27,9 @@ N := sub<P|x,y,z>;
 Q, p := quo<P|N>;
 ```
 It is easy to verify that 
-$P/N\simeq C_2\times C_2$. Here is the code: 
-```
-> GroupName(Q);
-C2^2
-```
+$P/N\simeq C_2\times C_2$. In fact, the command 
+`GroupName(Q);` returns `C2^2`. 
+
 Some questions: 
 
 * Why `IsAbelian(Q)` doesn’t work? 

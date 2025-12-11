@@ -10,30 +10,25 @@ tags:
 ---
 For example, let `f` be an integer polynomial. Can we obtain the factorization
 of `f` in other fields (e.g. finite fields)?'
+Let us start with the following code: 
+```
+Z<x>:=PolynomialRing(Integers());
+f := x^2-3*x+5;
+F<x>:=PolynomialRing(FiniteField(3));
+g := F!f;
+```
+Then `g` is equal to `x^2 + 2`. Therefore whenever makes sense to consider `f`
+with coefficients in another ring, then `g` will be the resulting polynomial. 
 
-Let `f` be an integer polynomial. 
+For the other question, the code 
 ```
-> f := x^2-3*x+5;
-> g := Q!f;
-> Z<x>:=PolynomialRing(Integers());
-> f := x^2-3*x+5;
-> f;
-x^2 - 3*x + 5
-> F<x>:=PolynomialRing(FiniteField(3));
-> g := F!f;
-> g;
-x^2 + 2
+Factorisation(f);
+Factorisation(g);
 ```
-If it makes sense to consider `f` with coefficients in another ring, 
-then `g` will be the resulting polynomial. 
-
-For the other question: 
-```
-> Factorisation(f);
+produces 
 [
     <x^2 - 3*x + 5, 1>
 ]
-> Factorisation(g);
 [
     <x + 1, 1>,
     <x + 2, 1>

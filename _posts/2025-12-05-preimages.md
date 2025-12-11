@@ -19,47 +19,42 @@ Z := Center(G);
 Q, p := quo< G|Z >;
 ```
 The group `Q` is a permutation group isomorphic to `A5`.
+Let us compute some preimages. Let us take a random element 
+`y` of `Q`, namely 
 ```
-> Q;
-Permutation group Q acting on a set of cardinality 6
-Order = 60 = 2^2 * 3 * 5
-    (1, 2)(3, 4)
-    (1, 3, 2)(4, 5, 6)
-> GroupName(Q);
-A5
+y := Random(Q);
+y;
+x := y @@ p;
 ```
-Let us compute some preimages:
+In our example, the element produced is the permutation 
+`(1, 3, 5, 4, 2)`. Let us compute a preimage of `y`: 
 ```
-> y := Random(Q);
-> y;
-(1, 3, 5, 4, 2)
-> x := y @@ p;
+x := y @@ p;
 x;
+```
+Here is the output: 
 [1 0]
 [4 1]
 ```
-How do I get _all_ the preimages of an element $y$? It seems I need the (right)
+How do I get _all_ the preimages of an element $y$? One needs the (right)
 coset $(\ker p)x$, where $x$ is such that $p(x)=y$. For this, I need to convert
 my matrix group into a permutation group: 
 ```
-> f, P := PermutationRepresentation(G);
-f;
-Homomorphism of SL(2, GF(5)) into GrpPerm: P, Degree 30, Order 2^3 * 3 * 5
-induced by
-    [2 0]
-    [0 3] |--> (2, 4)(5, 6)(7, 8, 9, 10)(11, 19, 13, 21)(12, 20, 14, 22)(15, 18,
-        17, 16)(23, 27, 25, 29)(24, 28, 26, 30)
-    [4 1]
-    [4 0] |--> (1, 2, 3)(4, 5, 6)(7, 11, 15)(8, 12, 16)(9, 13, 17)(10, 14,
-        18)(19, 23, 27)(20, 24, 28)(21, 25, 29)(22, 26, 30)
+f, P := PermutationRepresentation(G);
 ```
 The map `f` we get is a bijective group homomorphism $SL_2(5)\to P$, where $P$ is
 a permutation group. The preimage of $y$ has size two, and it is 
 the right coset $(\ker p)x$. Let us compute this: 
 ```
-> N := f(K);
-> K := Kernel(p);
-> { Inverse(f)(n*f(x)) : n in N };
+N := f(K);
+K := Kernel(p);
+```
+Now the preimage is the set 
+```
+{ Inverse(f)(n*f(x)) : n in N };
+```
+and this is equal to 
+```
 {
     [1 0]
     [4 1],

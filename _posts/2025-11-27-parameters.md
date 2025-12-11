@@ -8,15 +8,13 @@ tags:
   - matrix
   - linear algebra
 ---
-I believe the matrix has to be defined over a polynomial ring. For example:
+I believe the matrix has to be defined over a polynomial ring. For example, the
+code 
 ```
 R<x> := PolynomialRing(Integers());
-```
-followed by, say
-```
 M := Matrix(R,2,2,[[x,2],[3,x-1]]);
 ```
-gives the matrix
+produces the matrix 
 ```
 [    x     2]
 [    3 x - 1]
@@ -25,16 +23,10 @@ You can compute with this thing too. For example,
 ```
 Determinant(M);
 ```
-gives
+gives `x^2−x−6`. If you then wanted to change the base ring to, say
+$\mathbb{Q}[x]$, we proceed as follows: 
 ```
-x^2−x−6.
-```
-If you then wanted to change the base ring to, say $Q[x]$, then define
-```
-S<x>:=PolynomialRing(Rationals());
-```
-and writing
-```
+S<x> := PolynomialRing(Rationals());
 N := ChangeRing(M,S);
 ```
-does the trick.
+

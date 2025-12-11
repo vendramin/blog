@@ -23,30 +23,22 @@ The naive idea doesn't work. Typing
 ```
 { a : a in A };
 ```
-produces an error message: 
-```
->> { a : a in A };
-         ^
-Runtime error in for: Iteration is not possible over this object
-```
-One cannot directly iterate over automorphism groups. We first need to convert
+produces an error message, saying: _Iteration is not possible over this object_. 
+Thus one cannot directly iterate over automorphism groups. We first need to convert
 the automorphism group into a structure suitable for iteration.
 `PermutationGroup` and `FPGroup` do not work, and something strange happens
 with `PCGroup`. So what we should do? Here is the trick: 
 ```
-> p, P := PermutationRepresentation(A);
-> p;
-Mapping from: GrpAuto: A to GrpPerm: P
-> P;
-Permutation group P acting on a set of cardinality 3
-Order = 6 = 2 * 3
-    (1, 2)
-    (1, 3)
+p, P := PermutationRepresentation(A);
 ```
-We can iterate over `P` and use the inverse of the 
-map `p` to identity our elements inside `A`: 
+Here, `p` is a (bijective) map from `A` onto the permutation group `P`. 
+We can iterate over `P`, and we need to use the inverse of the 
+map `p` to identity our elements inside `A`. The code 
 ```
-> { x @@ p : x in P };
+{ x @@ p : x in P };
+```
+produces 
+```
 {
     Automorphism of Abelian Group isomorphic to Z/2 + Z/2
     Defined on 2 generators
