@@ -9,26 +9,30 @@ tags:
   - infinite group
   - Promislow group
 ---
-About the Promislow group.
+**Exercise.** Let $P=\langle a,b: a^{-1}b^2a=b^{-2}, b^{-1}a^2b=a^{-2}\rangle$ be the 
+Promislow group. Prove the following statements:
+1. The subgroup $N=\langle a^2,b^2,(ab)^2\rangle$ is 
+normal in $P$ and free abelian of rank three. 
+2. The group $P/N$ is isomorphic to the Klein group. 
+
+**Partial solution.**
+We construct the group $P$, the subgroup $N$ and 
+the quotient group $P/N$: 
 ```
 P<a,b> := Group < a,b | a^-1*b^2*a*b^2, b^-1*a^2*b*a^2 >;
-> x := a^2;
-> y := b^2;
-> z := (a*b)^2;
-> N := sub<P|x,y,z>;
-> Q, p := quo<P|a^2,b^2,(a*b)^2>;
-> IdentifyGroup(Q);
-<4, 2>
+x := a^2;
+y := b^2;
+z := (a*b)^2;
+N := sub<P|x,y,z>;
+Q, p := quo<P|N>;
+```
+It is easy to verify that 
+$P/N\simeq C_2\times C_2$. Here is the code: 
+```
 > GroupName(Q);
 C2^2
 ```
 Some questions: 
-* Why `Q := quo<P|N>` doesn’t work? 
-
-It does! The type of a subgroup `N` of a group `G` should be the same as the
-type of `G`. I think that in most cases, Magma views `N` as a literal subset of
-`G` and doesn’t give an inclusion map, but it looks like it gives an inclusion
-map in the case that the groups are finitely presented abelian.
 
 * Why `IsAbelian(Q)` doesn’t work? 
 

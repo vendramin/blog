@@ -14,61 +14,84 @@ tags:
 **Exercise.** Construct all all groups of order 12 that are 
 semidirect products.
 
-**Solution.** We first start with the group $(C_2\times C_2)\rtimes C_3$.  
+**Solution.** An exercise in elementary group theory states that every group of
+order 12 is a semidirect product of a group of order three and a group of order
+four. The groups of order three are isomorphic to $C_3$, and the groups of
+order four are isomorphic to $C_4$ or $C_2\times C_2$. We need to know how
+$C_3$ acts by automorphisms on $C_4$ and $C_2\times C_2$, and how $C_4$ and
+$C_2\times C_2$ act by automorphism on $C_3$. 
+
+##### Case 1.
+
+We first start with the group $(C_2\times C_2)\rtimes C_3$. We need the actions
+by automorphism of $C_3$ on $C_2\times C_2$, that is the group homomorphisms
+$C_3\to Aut(C_2\times C_2)$. 
 
 ```
-> C2 := CyclicGroup(2);
-> C2xC2 := DirectProduct(C2,C2);
-> C3 := CyclicGroup(3);
-> aut_C2xC2 := AutomorphismGroup(C2xC2);
-> #aut_C2xC2;
-6
-> f := aut_C2xC2.3;
-> g := aut_C2xC2.4;
-> Order(f);
-2
-> Order(g);
-2
-> Order(f*g);
-3
+C2 := CyclicGroup(2);
+C2xC2 := DirectProduct(C2,C2);
+C3 := CyclicGroup(3);
+aut_C2xC2 := AutomorphismGroup(C2xC2);
 ```
-In fact, here we see that the automorphism group
-of $C_2\times C_2$ is the symmetric group $\mathbb{S}_3$. to construct 
-semidirect pdocuts One of 
-the homomorphisms $C_3\to Aut(C_2\times C_2)$ is the one
-sending the generator of $C_3$ to an automorphism of order three, for example
-the product `f*g` we found before. 
+We cannot iterate over an automorphism group. Thus
+we construct a permutation representation `P` 
+of `aut_C2xC2`. 
 ```
-> sigma := hom< C3->aut_C2xC2 | <C3.1, f*g> >;
-> G := SemidirectProduct(C2xC2, C3, sigma);
-> GroupName(G);
+p, P := PermutationRepresentation(aut_C2xC2);
+```
+Now we construct a list with all the six maps 
+$C_3\to Aut(C_2\times C_2)$; not all are 
+group homomorphisms. 
+```
+maps := [ hom< C3->aut_C2xC2 | <C3.1,Inverse(p)(P!x)> > x in P ];
+```
+Here, `Inverse(p)(P!x)` is the automorphism of $C_2\times C_2$ 
+corresponding to the permutation `x` by the bijection `p`. We 
+crucial fact here is that we cannot iterate over `aut_C2xC2` but
+we can do it over `P`. 
+
+Now to get all semidirect products of the form 
+$(C_2\times C_2)\rtimes C_3$ we need to run over all _homomorphisms_ 
+in the list `maps`. However, we can't use the function
+`IsHomomorphism` for our maps. Thus we need our function
+to test whether a map is a homomorphism: 
+```
+is_homomorphism := function(f)
+  local dom, x, y;
+  dom := Domain(f);
+  for x in dom do
+    for y in dom do
+      if not (f(x*y) eq f(x)*f(y)) then
+        return false;
+      end if;
+    end for;
+  end for;
+  return true;
+end function;
+```
+This function is rather naive, but is more than enough for our purposes. So let
+us use it. The code 
+```
+for f in maps do
+  if is_homomorphism(f) then
+    G := SemidirectProduct(C2xC2, C3, f);
+    print GroupName(G);
+  end if;
+end for;
+```
+produces two groups, namely $C_2\times C_6$ and $\mathbb{A}_4$. Here
+is the output: 
+```
+C2*C6
+A4
 A4
 ```
-There are other homomorphisms to check, but will give
-either the cyclic group of order twelve or
-a group isomorphic to $\mathbb{A}_4$. Check it!
 
-What about semidirect products of the form $C_4\rtimes C_3$? In this case
-we will only get the cyclic group of order twelve: 
-```
-> C4 := CyclicGroup(4);
-> C3 := CyclicGroup(3);
-> aut_C4 := AutomorphismGroup(C4);
-> #aut_C4;
-2
-> id := aut_C4.1;
-> IsIdentity(id);
-true
-> rho := aut_C4.2;
-> IsIdentity(rho);
-false
-> trivial := hom< C3->aut_C4 | <C3.1, id>>;
-> G1 := SemidirectProduct(C4, C3, trivial);
-> GroupName(G1);
-C12
-> sigma := hom< C3->aut_C4 | <C3.1, rho> >;
-> G2 := SemidirectProduct(C4, C3, sigma);
-> GroupName(G2);
-C12
-```
+##### Case 2
+
+What about semidirect products of the form $C_4\rtimes C_3$? In this case we
+will only get the cyclic group of order twelve. 
+
+##### Case 3
+
 
