@@ -99,12 +99,13 @@ A := AutomorphismGroup(C4);
 p, P := PermutationRepresentation(A);
 maps := [ hom< C3->A | <C3.1,Inverse(p)(P!x)> > : x in P ];
 ```
-Now we need to use the function `is_homomorphism` we constructed before. In
-this case, only the cyclic group $C_{12}$ appears: 
+Now we need to use the function `is_homomorphism` we constructed before 
+and we are done. The code 
 ```
-> { GroupName(SemidirectProduct(C4,C3,f)) : f in maps | is_homomorphism(f) };
-{ C12 }
+{ GroupName(SemidirectProduct(C4,C3,f)) : f in maps | is_homomorphism(f) };
 ```
+produces `{ C12 }`. 
+
 ##### Case 3
 
 
