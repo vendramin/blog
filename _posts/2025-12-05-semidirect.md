@@ -119,7 +119,7 @@ In fact, the command
 a eq hom<C3->C3|x:->-x>;
 ```
 returns `true`. Now we construct the 
-group homomorphism $C_4\to\Aut(C_3)$ sending
+group homomorphism $C_4\to Aut(C_3)$ sending
 the generator `g` of $C_4$ to the automorphism `a`: 
 ```
 f := hom<C4->A|<g,a>>;
@@ -143,7 +143,7 @@ construct the groups:
 C2xC2<a,b> := AbelianGroup([2,2]);
 C3 := AbelianGroup([3]);
 A := AutomorphismGroup(C3);
-
+```
 Thus we know that $Aut(C_3)=\{\operatorname{id},\alpha\}$. There are four
 possible homomorphisms $C_2\times C_2\to Aut(C_3)$, as the generator $a$ and $b$ can be
 mapped independently to either $\id$ or $\alpha$, Again, we use a permutation
