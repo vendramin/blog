@@ -3,7 +3,7 @@ title: 'Three questions on group algebras'
 date: 2025-11-27
 author: Andrew Darlington
 categories:
-  - Questions
+  - questions
 tags:
   - group
   - algebra

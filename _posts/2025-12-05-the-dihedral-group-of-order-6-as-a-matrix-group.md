@@ -3,7 +3,7 @@ title: 'The dihedral group of order six as a matrix group'
 date: 2025-11-27
 author: VUB
 categories:
-  - Questions
+  - questions
 tags:
   - group
   - matrix group

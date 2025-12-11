@@ -1,13 +1,15 @@
 ---
-title: 'Given a finite field is there a way to get a generator of the mutiplicative group?'
+title: 'The multiplicative group of a field'
 date: 2025-11-27
 author: Andrew Darlington
 categories:
-  - Questions
+  - questions
 tags:
   - field
   - group
 ---
+Given a finite field is there a way to get a generator of the mutiplicative group?
+
 Let `F` be your finite field. Then
 ```
 M, f := MultiplicativeGroup(F);

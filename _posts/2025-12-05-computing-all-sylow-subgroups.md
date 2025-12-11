@@ -3,7 +3,7 @@ title: 'Computing all Sylow subgroups'
 date: 2025-11-27
 author: VUB
 categories:
-  - Questions
+  - questions
 tags:
   - group
   - Sylow subgroup

@@ -3,7 +3,7 @@ title: 'Evaluating polynomials'
 date: 2025-11-27
 author: Silvia Properzi
 categories:
-  - Questions
+  - questions
 tags:
   - polynomial
 ---

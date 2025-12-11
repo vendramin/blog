@@ -3,7 +3,7 @@ title: 'Computing preimages'
 date: 2025-11-27
 author: Leandro Vendramin
 categories:
-  - Questions
+  - questions
 tags:
   - homomorphism
   - group

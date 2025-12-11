@@ -3,7 +3,7 @@ title: 'Random elements in group algebras'
 date: 2025-11-27
 author: VUB
 categories:
-  - Questions
+  - questions
 tags:
   - random element
   - group algebra

@@ -3,7 +3,7 @@ title: 'Iterating over an automorphism group'
 date: 2025-11-27
 author: VUB
 categories:
-  - Questions
+  - questions
 tags:
   - group
   - automorphism group

@@ -3,7 +3,7 @@ title: 'Join and meet'
 date: 2025-11-27
 author: VUB
 categories:
-  - Questions
+  - questions
 tags:
   - ring
   - group

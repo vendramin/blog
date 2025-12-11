@@ -1,9 +1,9 @@
 ---
-title: 'Can we use matrices with parameters?'
+title: 'Matrices with parameters'
 date: 2025-11-27
 author: Andrew Darlington
 categories:
-  - Questions
+  - questions
 tags:
   - matrix
   - linear algebra

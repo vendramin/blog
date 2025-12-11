@@ -3,7 +3,7 @@ title: 'The Promislow group'
 date: 2025-11-27
 author: VUB
 categories:
-  - Questions
+  - questions
 tags:
   - group
   - infinite group

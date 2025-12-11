@@ -3,7 +3,7 @@ title: 'Direct products'
 date: 2025-11-27
 author: VUB
 categories:
-  - Questions
+  - questions
 tags:
   - group
   - direct product
