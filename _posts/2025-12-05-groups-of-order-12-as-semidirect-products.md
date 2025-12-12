@@ -29,7 +29,7 @@ $C_3\to \operatorname{Aut}(C_2\times C_2)$.
 ```
 C2xC2<a,b> := AbelianGroup([2,2]);
 C3<g> := CyclicGroup(3);
-A := \operatorname{Aut}omorphismGroup(C2xC2);
+A := AutomorphismGroup(C2xC2);
 ```
 We cannot iterate over an automorphism group. Thus
 we construct a permutation representation `P` 
@@ -91,7 +91,7 @@ will only get the cyclic group of order twelve.
 ```
 C3<g> := AbelianGroup([3]);
 C4 := AbelianGroup([4]);
-A := \operatorname{Aut}omorphismGroup(C4);
+A := AutomorphismGroup(C4);
 p, P := PermutationRepresentation(A);
 maps := [ hom< C3->A | <g,Inverse(p)(P!x)> > : x in P ];
 ```
@@ -111,7 +111,7 @@ $C_3\to C_3$, $x\mapsto -x$ (if the additive notation is used).
 ```
 C4<g> := AbelianGroup([4]);
 C3 := AbelianGroup([3]);
-A<a> := \operatorname{Aut}omorphismGroup(C3);
+A<a> := AutomorphismGroup(C3);
 ```
 Note that our `a` is the automorphism $x\mapsto -x$ of $C_3$. 
 In fact, the command 
@@ -142,7 +142,7 @@ construct the groups:
 ```
 C2xC2<a,b> := AbelianGroup([2,2]);
 C3 := AbelianGroup([3]);
-A := \operatorname{Aut}omorphismGroup(C3);
+A := AutomorphismGroup(C3);
 ```
 Thus we know that $\operatorname{Aut}(C_3)=\\{\operatorname{id},\alpha\\}$. There are four
 possible homomorphisms $C_2\times C_2\to \operatorname{Aut}(C_3)$, as the generator $a$ and $b$ can be
