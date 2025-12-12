@@ -25,9 +25,10 @@ is isomorphic to
 the quaternion group $Q_8$. To construct the 
 group we proceed as follows: 
 ```
-K<i> := CyclotomicField(4);
-a := Matrix(2, [i,0,0,-i]);
-b := Matrix(2, [0,1,-1,0]);
-G := MatrixGroup<2,K|a,b>;
+> K<i> := CyclotomicField(4);
+> a := Matrix(2, [i,0,0,-i]);
+> b := Matrix(2, [0,1,-1,0]);
+> G := MatrixGroup<2,K|a,b>;
+> GroupName(G);
+Q8
 ```
-Then the command `GroupName(G);` returns `Q8`. 

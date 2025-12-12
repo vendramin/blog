@@ -27,21 +27,21 @@ by automorphism of $C_3$ on $C_2\times C_2$, that is the group homomorphisms
 $C_3\to \operatorname{Aut}(C_2\times C_2)$. 
 
 ```
-C2xC2<a,b> := AbelianGroup([2,2]);
-C3<g> := CyclicGroup(3);
-A := AutomorphismGroup(C2xC2);
+> C2xC2<a,b> := AbelianGroup([2,2]);
+> C3<g> := CyclicGroup(3);
+> A := AutomorphismGroup(C2xC2);
 ```
 We cannot iterate over an automorphism group. Thus
 we construct a permutation representation `P` 
 of `A`. 
 ```
-p, P := PermutationRepresentation(A);
+> p, P := PermutationRepresentation(A);
 ```
 Now we construct a list with all the six maps 
 $C_3\to \operatorname{Aut}(C_2\times C_2)$; not all are 
 group homomorphisms. 
 ```
-maps := [ hom<C3->A | <g,Inverse(p)(P!x)>> : x in P ];
+> maps := [ hom<C3->A | <g,Inverse(p)(P!x)>> : x in P ];
 ```
 Here, `Inverse(p)(P!x)` is the automorphism of $C_2\times C_2$ 
 corresponding to the permutation `x` by the bijection `p`. We 
@@ -53,32 +53,28 @@ need to run over all _homomorphisms_ in the list `maps`. However, we can't use
 the function `IsHomomorphism` for our maps. Thus we need our function to test
 whether a map is a homomorphism: 
 ```
-is_homomorphism := function(f)
-  local dom, x, y;
-  dom := Domain(f);
-  for x in dom do
-    for y in dom do
-      if not (f(x*y) eq f(x)*f(y)) then
-        return false;
-      end if;
-    end for;
-  end for;
-  return true;
-end function;
+> is_homomorphism := function(f)
+function> local dom, x, y;
+function> dom := Domain(f);
+function> for x in dom do
+function|for> for y in dom do
+function|for|for> if not (f(x*y) eq f(x)*f(y)) then
+function|for|for|if> return false;
+function|for|for|if> end if;
+function|for|for> end for;
+function|for> end for;
+function> return true;
+function> end function;
 ```
 This function is rather naive, but is more than enough for our purposes. So let
 us use it. The code 
 ```
-for f in maps do
-  if is_homomorphism(f) then
-    G := SemidirectProduct(C2xC2, C3, f);
-    print GroupName(G);
-  end if;
-end for;
-```
-produces two groups, namely $C_2\times C_6$ and $\mathbb{A}_4$. Here
-is the output: 
-```
+> for f in maps do
+for> if is_homomorphism(f) then
+for|if> G := SemidirectProduct(C2xC2, C3, f);
+for|if> print GroupName(G);
+for|if> end if;
+for> end for;
 C2*C6
 A4
 A4
@@ -89,18 +85,18 @@ A4
 What about semidirect products of the form $C_4\rtimes C_3$? In this case, we
 will only get the cyclic group of order twelve. 
 ```
-C3<g> := AbelianGroup([3]);
-C4 := AbelianGroup([4]);
-A := AutomorphismGroup(C4);
-p, P := PermutationRepresentation(A);
-maps := [ hom< C3->A | <g,Inverse(p)(P!x)> > : x in P ];
+> C3<g> := AbelianGroup([3]);
+> C4 := AbelianGroup([4]);
+> A := AutomorphismGroup(C4);
+> p, P := PermutationRepresentation(A);
+> maps := [ hom< C3->A | <g,Inverse(p)(P!x)> > : x in P ];
 ```
 Now we need to use the function `is_homomorphism` we constructed before 
 and we are done. The code 
 ```
-{ GroupName(SemidirectProduct(C4,C3,f)) : f in maps | is_homomorphism(f) };
+> { GroupName(SemidirectProduct(C4,C3,f)) : f in maps | is_homomorphism(f) };
+{ C12 }
 ```
-produces `{ C12 }`. 
 
 ##### Case 3
 
@@ -109,29 +105,31 @@ that $\operatorname{Aut}(C_3)\simeq C_2$. So there is only one non-trivial
 automorphism of $C_3$, namely
 $C_3\to C_3$, $x\mapsto -x$ (if the additive notation is used). 
 ```
-C4<g> := AbelianGroup([4]);
-C3 := AbelianGroup([3]);
-A<a> := AutomorphismGroup(C3);
+> C4<g> := AbelianGroup([4]);
+> C3 := AbelianGroup([3]);
+> A<a> := AutomorphismGroup(C3);
 ```
 Note that our `a` is the automorphism $x\mapsto -x$ of $C_3$. 
 In fact, the command 
 ```
-a eq hom<C3->C3|x:->-x>;
+> a eq hom<C3->C3|x:->-x>;
+true
 ```
-returns `true`. Now we construct the 
+Now we construct the 
 group homomorphism $C_4\to \operatorname{Aut}(C_3)$ sending
 the generator `g` of $C_4$ to the automorphism `a`: 
 ```
-f := hom<C4->A|<g,a>>;
+> f := hom<C4->A|<g,a>>;
 ```
 We can check that this `f` is a homomorphism, but we leave this
 as an exercise. Now we construct the semidirect product and check
 the structure of the group constructed: 
 ```
-G := SemidirectProduct(C3,C4,f);
-GroupName(G);
+> G := SemidirectProduct(C3,C4,f);
+> GroupName(G);
+C_3:C_4
 ```
-The code returns `C_3:C_4`, which means _a_ semidirect product 
+This means that our `G` is isomorphic to _a_ semidirect product 
 of the form $C_3\rtimes C_4$. 
 
 ##### Case 4
@@ -140,24 +138,21 @@ There is one case left, namely the semidirect products of the form $C_3\rtimes
 (C_2\times C_2)$. Assume that $C_2\times C_2=\langle a,b\rangle$. Let us first
 construct the groups: 
 ```
-C2xC2<a,b> := AbelianGroup([2,2]);
-C3 := AbelianGroup([3]);
-A := AutomorphismGroup(C3);
+> C2xC2<a,b> := AbelianGroup([2,2]);
+> C3 := AbelianGroup([3]);
+> A := AutomorphismGroup(C3);
 ```
 Thus we know that $\operatorname{Aut}(C_3)=\\{\operatorname{id},\alpha\\}$. There are four
 possible homomorphisms $C_2\times C_2\to \operatorname{Aut}(C_3)$, as the generator $a$ and $b$ can be
 mapped independently to either the identity or $\alpha$, Again, we use a permutation
 representation to be able to iterate over an automorphism group: 
 ```
-p, P := PermutationRepresentation(A);
-maps := [ hom< C2xC2->A | <a,Inverse(p)(P!x)>, <b,Inverse(p)(P!y)>> : x, y in P ];
+> p, P := PermutationRepresentation(A);
+> maps := [ hom< C2xC2->A | <a,Inverse(p)(P!x)>, <b,Inverse(p)(P!y)>> : x, y in P ];
 ```
 Now we run over `maps` and construct the corresponding semidirect products. The code
 ```
-{ GroupName(SemidirectProduct(C3,C2xC2,f)) : f in maps };
-```
-produces only two groups (up to isomorphism): 
-```
+> { GroupName(SemidirectProduct(C3,C2xC2,f)) : f in maps };
 { D6, C2*C6 } 
 ```
 Therefore, in this case, we obtain the dihedral group of order twelve, 

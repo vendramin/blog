@@ -12,7 +12,7 @@ Given a finite field is there a way to get a generator of the mutiplicative grou
 
 Let `F` be your finite field. Then
 ```
-M, f := MultiplicativeGroup(F);
+> M, f := MultiplicativeGroup(F);
 ```
 returns the cyclic group `M`, isomorphic to the multiplicative group of `F`.
 Then simply compute `f(M.1)` for the generator of the multiplicative group of

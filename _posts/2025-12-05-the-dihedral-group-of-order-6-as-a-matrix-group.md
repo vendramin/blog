@@ -20,12 +20,17 @@ $\begin{pmatrix}
 \end{pmatrix}$ is isomorphic to the
 dihedral group of order six. 
 ```
-Q<x> := PolynomialAlgebra(Rationals());
-f := x^2 - 3;
-K<z> := NumberField(f);
-a := Matrix(2, [-1/2,-z/2,z/2,-1/2]);
-b := Matrix(2, [1,0,0,-1]);
-G := MatrixGroup<2,K|a,b>;
+> Q<x> := PolynomialAlgebra(Rationals());
+> f := x^2 - 3;
+> K<z> := NumberField(f);
+> a := Matrix(2, [-1/2,-z/2,z/2,-1/2]);
+> b := Matrix(2, [1,0,0,-1]);
+> G := MatrixGroup<2,K|a,b>;
 ```
-Which group is this? The command `GroupName(G);` returns `S3`. And we all know
-that the dihedral group of order six is isomorphic to $\mathbb{S}_3$. 
+Which group is this? 
+```
+GroupName(G);` 
+S3
+```
+And we all know that the dihedral group of order six is isomorphic to
+$\mathbb{S}_3$. 

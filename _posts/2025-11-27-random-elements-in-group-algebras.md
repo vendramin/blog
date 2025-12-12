@@ -17,18 +17,19 @@ bounds). Instead of using `ComplexField`, we will use the field
 $\mathbb{Q}(i)$. Here is a concrete way to generate some sort of random
 elements group algebras: 
 ```
-G := Sym(3);
-Q<i> := QuadraticField(-1);
-A := GroupAlgebra(Q,G);
-x := Random(-100,100);
-y := Random(-100,100);
-z := x+i*y;
+> G := Sym(3);
+> Q<i> := QuadraticField(-1);
+> A := GroupAlgebra(Q,G);
+> x := Random(-100,100);
+> y := Random(-100,100);
+> z := x+i*y;
+41*i + 34
 ```
-In our case, `z` is `41*i + 34`. Now with
+Now 
 ```
-A!z*Random(G);
+> A!z*Random(G);
+(41*i + 34)*(1, 2, 3)
 ```
-we get a very special type of a random element of our group algebra. In our case, 
-we obtain `(41*i + 34)*(1, 2, 3)`. There should be a better way to get 
+There should be a better way to get 
 _better_ random elements of $\mathbb{C}[G]$. No? 
 
