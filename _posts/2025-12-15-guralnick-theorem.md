@@ -11,8 +11,8 @@ tags:
 **Exercise.** Prove the following result:
 
 **Theorem (Guralnick).**
-There is a group $G$ of order $\leq200$ such that $[G,G]\ne\{ [x,y]:x,y\in G\}$
-if and only if $n\in\{96,128,144, 162, 168, 192\}$. 
+There is a group $G$ of order $\leq200$ such that $[G,G]\ne\lbrace [x,y]:x,y\in G\rbrace$
+if and only if $n\in\lbrace 96,128,144, 162, 168, 192\rbrace$. 
 
 The theorem appeared in [Guralnick, R. Commutators and commutator subgroups.
 _Adv. in Math._ 45 (1982), no. 3, 319–330].    
