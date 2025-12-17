@@ -1,6 +1,6 @@
 main:
-  - title: "Talks"
-    url: /talks/
+  - title: "About"
+    url: /about/
   - title: "Posts"
     url: /posts/
   - title: "Categories"
@@ -9,5 +9,3 @@ main:
     url: /tags/
   - title: "Links"
     url: /links/
-  - title: "About"
-    url: /about/
